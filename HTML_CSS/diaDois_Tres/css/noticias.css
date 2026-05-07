@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("https://m.gettywallpapers.com/wp-content/uploads/2024/05/Stephen-Curry-4k-Wallpaper-scaled.jpg");
+    background-position: center 20%;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container-1 {
+    display: flex;
+    height: 100%;
+}
+
+.container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12%;
+    height: 100%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #000;
+    color: #FFC72C;
+}
+
+.container-3 {
+    padding: 1rem;
+    width: 88%;
+}
+
+.nav #links {
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    display: flex;
+    list-style: none;
+}
+
+#links a {
+    color: #FFC72C;
+    text-decoration: none;
+    font-size: 19px;
+    transition: 0.6s;
+}
+
+#links a:hover {
+    font-size: 20px;
+    padding: 5px;
+    background-color: #000;
+    color: #fff;
+    transform: scale(1.5);
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    gap: 16rem;
+    margin-top: 10rem;
+    color: #fff;
+}
+
+.nt {
+    background-color: #000;
+    width: 30%;
+    padding: 1.5rem;
+    height: auto;
+    border-radius: 2rem;
+    text-align: justify;
+    border-left: 5px solid #FFC72C;
+    transition: 0.3s;
+}
+
+.nt:nth-child(2) {
+   min-height: 180px; 
+}
+
+.nt:hover {
+    background-color: #1D428A;
+    transform: scale(1.05);
+}
+
+
+.nt h1 {
+    font-size: 18px;
+}
+
+.nt:nth-child(2) {
+    height: 165px;
+}
