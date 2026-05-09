@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #1E3A8A;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background: #333;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav li {
+    margin: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.container {
+    width: 70%;
+    float: left;
+    padding: 20px;
+}
+
+section, article {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+aside {
+    width: 25%;
+    float: right;
+    background: #ffeeba;
+    padding: 15px;
+    margin: 20px;
+}
+
+footer {
+    clear: both;
+    text-align: center;
+    background: #1E3A8A;
+    color: white;
+    padding: 10px;
+}
