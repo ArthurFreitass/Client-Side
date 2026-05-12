@@ -1,0 +1,25 @@
+.login {
+    margin: 0 auto;
+    width: 500px;
+    height: 200px;
+    text-align: center;
+    box-shadow: 6px 2px 7px #eeebeb;
+    border-radius: 2rem;
+    border: 0.2px solid rgb(20, 220, 210);
+}
+
+button {
+    background-color: green;
+    color: #fff;
+    padding: 1em;
+    width: 110px;
+    border-radius: 1rem;
+    border: none;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: rgb(87, 163, 87);
+    padding: 1.1em;
+    cursor: pointer;
+}

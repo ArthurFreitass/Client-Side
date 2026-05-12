@@ -1,0 +1,10 @@
+.galeria {
+    display: flex;
+    gap: 1rem;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 0.4rem;
+}

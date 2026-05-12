@@ -1,0 +1,9 @@
+body {
+    background-color: yellow;
+}
+
+div {
+    border: 1px outset green;
+    border-radius: 1rem;
+    padding: 2rem;
+}
