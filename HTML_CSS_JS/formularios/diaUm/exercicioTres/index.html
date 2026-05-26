@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário - 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--Atividade 3 — Cadastro de Aluno
+Monte um formulário para cadastro escolar.
+Campos:
+• Nome do aluno
+• Nome da mãe
+• Nome do pai
+• CPF
+• RG
+• Data de nascimento
+• Série
+• Turno
+• Endereço
+• Bairro
+• CEP
+• Cidade
+• Estado
+
+Utilize:
+• <input>
+• <select>
+• <textarea>
+• <option>
+Desafio:
+• Organizar os campos em seções.
+• Criar títulos como:
+o Dados Pessoais
+o Endereço
+o Informações Escolares-->
+    <form action="" method="get"> 
+        <fieldset>
+            <legend>Dados Pessoais</legend>
+            
+            <div>
+                <label for="name-student">Nome do aluno:</label>
+                <input type="text" id="name-student" name="student" placeholder="Digite o nome do aluno">
+            </div>
+            <div>
+                <label for="name-mother">Nome da mãe:</label>
+                <input type="text" id="name-mother" name="mother" placeholder="Digite o nome da mãe">
+            </div>
+            <div>
+                <label for="name-father">Nome do pai:</label>
+                <input type="text" id="name-father" name="father" placeholder="Digite o nome do seu pai">
+            </div>
+            <div>
+                <label for="cpf">Digite o CPF do aluno:</label>
+                <input type="text" name="cpf" id="cpf" placeholder="CPF: 111111111-11">
+            </div>
+            <div>
+                <label for="rg">Digite o RG do aluno:</label>
+                <input type="text" name="rg" id="rg" placeholder="RG: Número da sua carteira">
+            </div>
+            <div>
+                <label for="birthdate">Digite sua data de nascimento:</label>
+                <input type="date" name="birthdate" id="birthdate">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Informações Escolares</legend>
+            
+            <div>
+                <label for="serie">Série a ser escolhida:</label>
+                <select name="high-school" id="serie">
+                    <option value="1">1º ano</option>
+                    <option value="2">2º ano</option>
+                    <option value="3">3º ano</option>
+                </select>
+            </div>
+            <div>
+                <p>Escolha um turno:</p>
+                <input type="radio" name="turno" id="manha">
+                <label for="manha">Manhã</label>
+                <input type="radio" name="turno" id="tarde">
+                <label for="tarde">Tarde</label>
+                <input type="radio" name="turno" id="noite">
+                <label for="noite">Noite</label>
+            </div>
+            <div>
+                <label for="motivacao">Escreva a motivação do turno escolhido:</label>
+                <textarea name="motivacao" id="motivacao" placeholder="Escreva aqui"></textarea>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Endereço</legend>
+            
+            <div>
+                <label for="address">Endereço:</label>
+                <input type="text" name="address" id="address" placeholder="Digite seu endereço completo" required>
+            </div>
+            <div>
+                <label for="bairro">Bairro:</label>
+                <input type="text" name="bairro" id="bairro" placeholder="Digite seu bairro" required>
+            </div>
+            <div>
+                <label for="cep">CEP:</label>
+                <input type="text" name="cep" id="cep" placeholder="CEP: 111.456-999" required>
+            </div>
+            <div>
+                <label for="cities">Cidade:</label>
+                <select name="cities" id="cities">
+                    <option value="BH">BH</option>
+                    <option value="ST">Santa Luzia</option>
+                    <option value="C">Contagem</option>
+                </select>
+            </div>
+            <div>
+                <label for="state">Estado:</label>
+                <select name="state" id="state">
+                    <option value="RJ">RJ</option>
+                    <option value="MG">MG</option>
+                    <option value="SP">SP</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

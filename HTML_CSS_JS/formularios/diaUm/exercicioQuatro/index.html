@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Quatro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--Atividade 4 — Pesquisa de Satisfação
+Crie um formulário de pesquisa.
+O formulário deve conter:
+• Nome
+• Idade
+• Nota de 0 a 10
+• Campo de opinião
+• Radio button:
+o Excelente
+o Bom
+o Regular
+o Ruim
+
+• Checkbox:
+o Atendimento
+o Qualidade
+o Preço
+o Ambiente
+
+Botões:
+• Enviar pesquisa
+• Limpar-->
+
+    <form action="" method="get">
+        <div>
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" placeholder="Digite seu nome:" required>
+        </div>
+        <div>
+            <label for="birthdate">Entre com seu ano de nascimento:</label>
+            <input type="date" name="birthdate" id="birthdate" required>
+        </div>
+        <div>
+            <label for="rating">Nota de 0 a 10</label>
+            <input type="number" name="rating" id="rating" min="0" max="10" value="0" required>
+        </div>
+        <div>
+            <p>Opinião sobre o atendimento:</p>
+            <input type="radio" name="opn" id="excelente">
+            <label for="excelente">Excelente</label>
+            <input type="radio" name="opn" id="bom">
+            <label for="bom">Bom</label>
+            <input type="radio" name="opn" id="regular">
+            <label for="regular">Regular</label>
+            <input type="radio" name="opn" id="ruim">
+            <label for="ruim">Ruim</label>
+        </div>
+        <div>
+            <p>O que você mais gostou?</p>
+            <input type="checkbox" name="atd" id="atendimento">
+            <label for="atendimento">Atendimento</label>
+            <input type="checkbox" name="q" id="Qualidade">
+            <label for="qualidade">Qualidade</label>
+            <input type="checkbox" name="p" id="preço">
+            <label for="preço">Preço</label>
+            <input type="checkbox" name="ambiente" id="ambiente">
+            <label for="ambiente">Ambiente</label>
+        </div>
+        <button type="submit">Enviar</button>
+        <input type="reset" value="Limpar">
+    </form>
+</body>
+
+</html>
