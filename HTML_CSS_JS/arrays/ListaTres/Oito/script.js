@@ -13,10 +13,10 @@ const repeatNums = () => {
         for (let j = i + 1; j < arr.length; j++) {
             if (arr[i] === arr[j]) {
                 temRepetido = true
-                break // Para o loop interno se achar um repetido
+                break
             }
         }
-        if (temRepetido) break // Para o loop externo também
+        if (temRepetido) break
     }
 
     alert("Existem repetidos no array = " + temRepetido)
