@@ -8,14 +8,16 @@ const biggestNumber = () => {
     }
 
     let big = arr[0]
+    let position = 0
 
-    arr.forEach((numArr) => {
+    arr.forEach((numArr, index) => {
         if (numArr > big) {
             big = numArr
+            position = index
         }
     })
 
-    alert("O maior elemento do array é: " + big)
+    alert("O maior elemento do array é: " + big + " sua posição é: "+ position)
 }
 
 biggestNumber()
