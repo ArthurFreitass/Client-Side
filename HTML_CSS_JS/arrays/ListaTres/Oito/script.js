@@ -7,18 +7,19 @@ const repeatNums = () => {
         arr.push(Number(prompt("Digite um número:")))
     }
 
-    let repeatNums = false
+    let temRepetido = false 
 
-    let first = arr[0]
-
-    for (let i = 1; i < arr.length; i++) {
-        if (first == arr[i]) {
-            first = arr[i]
-            repeatNums = true
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] === arr[j]) {
+                temRepetido = true
+                break // Para o loop interno se achar um repetido
+            }
         }
+        if (temRepetido) break // Para o loop externo também
     }
 
-    alert("Existem repetidos no array = " + repeatNums)
+    alert("Existem repetidos no array = " + temRepetido)
 }
 
 repeatNums()
