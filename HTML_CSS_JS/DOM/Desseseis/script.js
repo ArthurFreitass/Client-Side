@@ -1,3 +1,0 @@
-function lies() {
-    alert("MENTIROSOOO")
-}
