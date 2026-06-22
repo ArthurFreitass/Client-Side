@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>Ativar evento</button>
+    <button>Remover evento</button>
+    <br> <br>
+
+    <div style="width: 200px; height: 100px; background-color: grey;"></div>
+
+    <script>
+
+
+        const buttons = document.querySelectorAll("button")
+        const div = document.querySelector("div")
+
+
+
+        const changeColor = () => {
+            div.style.background = 'blue'
+        }
+
+        buttons[0].addEventListener("click", () => {
+            buttons[0].textContent = "Executando evento"
+            div.addEventListener("click", changeColor)
+        })
+
+        buttons[1].addEventListener("click", () => {
+            buttons[0].textContent = "Reativar evento"
+            div.removeEventListener("click", changeColor)
+            div.style.background = "grey"
+        })
+    </script>
+</body>
+
+</html>

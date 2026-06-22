@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Ativar Teclado</button>
+    <button>Desativar Teclado</button>
+
+    <h1>Número de teclas pressionadas: 0</h1>
+
+    <script>
+        let count = 0
+
+        const btns = document.querySelectorAll("button")
+        const h1 = document.querySelector("h1")
+        
+        const countKeydown = () => {
+            count++
+            h1.textContent = "Número de teclas pressionadas: "+ count
+        }
+
+        btns[0].addEventListener("click", () => {
+            document.addEventListener("keydown", countKeydown)
+        })
+
+        btns[1].addEventListener("click", () => {
+            document.removeEventListener("keydown", countKeydown)
+        })
+    </script>
+</body>
+</html>
