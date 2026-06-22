@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        gap: 2em;
+    }
+</style>
+<body>
+    <div style="width: 100px; height: 100px; background-color: red; border-radius: 50px;"></div>
+    <div style="width: 100px; height: 100px; background-color: blue;"></div>
+    <script>
+        window.onload = () => {
+            const div = document.querySelectorAll("div")
+
+            div[0].style.background = 'blue'
+            div[1].style.background = 'red'
+            
+        }
+    </script>
+</body>
+
+</html>

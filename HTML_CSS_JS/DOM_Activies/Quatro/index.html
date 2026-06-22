@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="width: 100px; height: 100px; background-color: grey;"></div>
+    <div style="width: 100px; height: 100px; background-color: grey;"></div>
+    <div style="width: 100px; height: 100px; background-color: grey;"></div>
+    <script>
+        window.onload = () => {
+            const div = document.querySelectorAll("div")
+            div.forEach((el, i) => {
+                if (i == 0) {
+                    el.style.background = 'blue'
+                }
+                if (i == 1) {
+                    el.style.background = 'orange'
+                }
+                if (i == 2) (el.style.background = 'pink')
+            })
+        }
+    </script>
+</body>
+
+</html>

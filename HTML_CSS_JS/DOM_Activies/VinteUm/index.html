@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Div e Botão</title>
+    <style>
+        #minhaDiv {
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="minhaDiv">Texto original</div>
+
+    <button onclick="alterarTexto()">Mostrar Mensagem</button>
+
+    <script>
+        function alterarTexto() {
+            document.getElementById("minhaDiv").innerHTML = "Texto alterado com sucesso!";
+        }
+    </script>
+
+</body>
+</html>

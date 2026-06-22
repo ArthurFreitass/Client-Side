@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Modo Escuro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        #meuRetangulo {
+            width: 300px;
+            height: 150px;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: 0.3s;
+            background-color: white;
+            color: black;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="meuRetangulo">
+        Texto do Retângulo
+    </div>
+
+    <button onclick="alternarModo()">Modo Escuro</button>
+
+    <script>
+        function alternarModo() {
+            const retangulo = document.getElementById("meuRetangulo");
+
+            if (retangulo.style.backgroundColor === "white" || retangulo.style.backgroundColor === "") {
+                retangulo.style.backgroundColor = "black";
+                retangulo.style.color = "white";
+            } else {
+                retangulo.style.backgroundColor = "white";
+                retangulo.style.color = "black";
+            }
+        }
+    </script>
+
+</body>
+</html>

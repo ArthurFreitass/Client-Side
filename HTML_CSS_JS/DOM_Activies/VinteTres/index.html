@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternar Cor</title>
+    <style>
+        #minhaDiv {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="minhaDiv"></div>
+    <button id="meuBotao">Alternar Cor</button>
+
+    <script>
+        const div = document.getElementById('minhaDiv');
+        const botao = document.getElementById('meuBotao');
+
+        botao.addEventListener('click', function() {
+            const corAtual = window.getComputedStyle(div).backgroundColor;
+
+            if (corAtual === 'rgb(255, 0, 0)') {
+                div.style.backgroundColor = 'green';
+            } else {
+                div.style.backgroundColor = 'red';
+            }
+        });
+    </script>
+</body>
+</html>

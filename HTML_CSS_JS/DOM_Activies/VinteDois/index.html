@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Div e Botão</title>
+    <style>
+        #minhaDiv {
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="minhaDiv">Texto original</div>
+    <button onclick="alterarEstado()">Mostrar Mensagem</button>
+
+    <script>
+        function alterarEstado() {
+            const div = document.getElementById("minhaDiv");
+            div.innerHTML = "Cor alterada com sucesso!";
+            div.style.backgroundColor = "blue";
+        }
+    </script>
+
+</body>
+</html>

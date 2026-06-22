@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 15</title>
+
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(215, 215, 215);
+            padding-top: 1rem;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <button>Botão 1: "Azul"</button>
+        <button>Botão 2: "Rosa"</button>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll("button")
+        const div = document.querySelector('div')
+        buttons.forEach((ele, i) => {
+            ele.addEventListener("click", () => {
+                if (i == 0) {
+                    div.style.backgroundColor = "blue"
+                } else if (i == 1) {
+                    div.style.backgroundColor = 'pink'
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

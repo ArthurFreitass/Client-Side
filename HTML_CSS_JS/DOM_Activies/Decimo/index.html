@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arco-íris</title>
+
+    <style>
+        .container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .box {
+            width: 60px;
+            height: 60px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Divs Arco-Íris</h1>
+
+    <div class="container">
+        <div class="box" id="d1"></div>
+        <div class="box" id="d2"></div>
+        <div class="box" id="d3"></div>
+        <div class="box" id="d4"></div>
+        <div class="box" id="d5"></div>
+    </div>
+
+    <br>
+    <button onclick="colorir()">Colorir</button>
+
+    <script>
+        function colorir() {
+            document.getElementById("d1").style.backgroundColor = "red";
+            document.getElementById("d2").style.backgroundColor = "orange";
+            document.getElementById("d3").style.backgroundColor = "yellow";
+            document.getElementById("d4").style.backgroundColor = "green";
+            document.getElementById("d5").style.backgroundColor = "blue";
+        }
+    </script>
+
+</body>
+</html>
