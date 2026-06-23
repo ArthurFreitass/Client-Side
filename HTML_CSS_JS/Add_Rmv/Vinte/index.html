@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 20 – Cadastro com Limite</title>
+</head>
+<body>
+
+    <button id="btnAtivar">Ativar Cadastro</button>
+    <button id="btnDesativar">Desativar Cadastro</button>
+    <br><br>
+
+    <input type="text" id="inputNome" placeholder="Digite um nome" disabled>
+    <button id="btnCadastrar" disabled>Cadastrar</button>
+    
+    <div id="mensagem"></div>
+    <ul id="listaNomes"></ul>
+
+    <script>
+        const btnAtivar = document.getElementById('btnAtivar');
+        const btnDesativar = document.getElementById('btnDesativar');
+        const inputNome = document.getElementById('inputNome');
+        const btnCadastrar = document.getElementById('btnCadastrar');
+        const mensagem = document.getElementById('mensagem');
+        const listaNomes = document.getElementById('listaNomes');
+
+        let nomes = [];
+
+        function atualizarLista() {
+            listaNomes.innerHTML = "";
+            for (let i = 0; i < nomes.length; i++) {
+                const li = document.createElement('li');
+                li.textContent = nomes[i];
+                listaNomes.appendChild(li);
+            }
+        }
+
+        function cadastrarNome() {
+            const nome = inputNome.value.trim();
+            
+            if (nome !== "") {
+                nomes.push(nome);
+                inputNome.value = "";
+                atualizarLista();
+
+                if (nomes.length >= 5) {
+                    mensagem.textContent = "Limite de cadastros atingido.";
+                    btnCadastrar.removeEventListener('click', cadastrarNome);
+                    btnCadastrar.disabled = true;
+                    inputNome.disabled = true;
+                }
+            }
+        }
+
+        btnAtivar.addEventListener('click', () => {
+            if (nomes.length < 5) {
+                btnCadastrar.disabled = false;
+                inputNome.disabled = false;
+                btnCadastrar.addEventListener('click', cadastrarNome);
+                mensagem.textContent = "";
+            }
+        });
+
+        btnDesativar.addEventListener('click', () => {
+            btnCadastrar.removeEventListener('click', cadastrarNome);
+            btnCadastrar.disabled = true;
+            inputNome.disabled = true;
+        });
+    </script>
+
+</body>
+</html>

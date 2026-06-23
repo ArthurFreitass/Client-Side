@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 13 – Caixa de Texto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #visualizacao {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 20px;
+            background-color: #f9f9f9;
+        }
+        .controles {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controles">
+        <button id="btnAtivar">Ativar Evento</button>
+        <button id="btnRemover">Remover Evento</button>
+    </div>
+
+    <input type="text" id="caixaTexto" placeholder="Digite algo aqui..." disabled>
+    
+    <div id="visualizacao"></div>
+
+    <script>
+        const caixaTexto = document.getElementById('caixaTexto');
+        const visualizacao = document.getElementById('visualizacao');
+        const btnAtivar = document.getElementById('btnAtivar');
+        const btnRemover = document.getElementById('btnRemover');
+
+        function atualizarTexto(evento) {
+            visualizacao.textContent = evento.target.value;
+        }
+
+        btnAtivar.addEventListener('click', () => {
+            caixaTexto.disabled = false;
+            caixaTexto.addEventListener('input', atualizarTexto);
+            caixaTexto.focus();
+        });
+
+        btnRemover.addEventListener('click', () => {
+            caixaTexto.removeEventListener('input', atualizarTexto);
+            caixaTexto.disabled = true;
+        });
+    </script>
+
+</body>
+</html>

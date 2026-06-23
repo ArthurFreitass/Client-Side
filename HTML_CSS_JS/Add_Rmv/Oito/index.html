@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>Ligar Alerta</button>
+    <button>Desligar Alerta</button>
+    <br> <br>
+
+    <div style="width: 200px; height: 200px; background-color: black;"></div>
+
+    <script>
+
+
+        const buttons = document.querySelectorAll("button")
+        const div = document.querySelector("div")
+
+        const big = () => {
+            let currentHeight = div.clientHeight;
+            let currentWidth = div.clientWidth;
+            div.style.width = (currentWidth + 50) + "px"
+            div.style.height = (currentHeight + 50) + "px"
+        }
+
+        buttons[0].addEventListener("click", () => {
+            buttons[0].textContent = "Executando evento"
+            div.addEventListener("click", big)
+        })
+
+        buttons[1].addEventListener("click", () => {
+            buttons[0].textContent = "Reativar evento"
+            div.removeEventListener("click", big)
+        })
+    </script>
+</body>
+
+</html>

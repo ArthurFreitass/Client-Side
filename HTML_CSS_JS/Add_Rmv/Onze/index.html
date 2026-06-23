@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 11</title>
+</head>
+
+<body>
+
+    <button>Ativar evento</button>
+    <button>Desativar evento</button>
+
+    <h1>Arthur é o Dev</h1>
+    <script>
+
+        const h1 = document.querySelector("h1")
+        const buttons = document.querySelectorAll("button")
+
+
+        const changeColor = () => {
+            h1.style.color = 'purple'
+
+        }
+
+        buttons[0].addEventListener("click", () => {
+            h1.addEventListener('click', changeColor)
+        })
+
+        buttons[1].addEventListener("click", () => {
+            h1.removeEventListener("click", changeColor)
+            h1.style.color = 'black'
+        })
+    </script>
+</body>
+
+</html>

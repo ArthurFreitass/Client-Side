@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn-iniciar">Iniciar Clique</button>
+    <button id="btn-parar">Parar Clique</button>
+    <div id="quadrado"></div>
+
+    <script>
+        const btnIniciar = document.getElementById("btn-iniciar");
+        const btnParar = document.getElementById("btn-parar");
+        const quadrado = document.getElementById("quadrado");
+
+        const divColor = () => {
+            quadrado.style.backgroundColor = "green";
+        };
+
+        btnIniciar.addEventListener("click", divColor);
+
+        btnParar.addEventListener("click", () => {
+            btnIniciar.removeEventListener("click", divColor);
+            quadrado.style.backgroundColor = "white";
+        });
+    </script>
+</body>
+</html>

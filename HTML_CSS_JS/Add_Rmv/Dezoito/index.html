@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 18 – Sistema de Vidas</title>
+</head>
+<body>
+
+    <button id="btnAtivar">Iniciar Jogo</button>
+    <br><br>
+
+    <button id="btnPerderVida" disabled>Perder Vida</button>
+    
+    <div id="visualizacao">Vidas: 5</div>
+
+    <script>
+        const btnAtivar = document.getElementById('btnAtivar');
+        const btnPerderVida = document.getElementById('btnPerderVida');
+        const visualizacao = document.getElementById('visualizacao');
+
+        let vidas = 5;
+
+        function computarDano() {
+            vidas--;
+
+            if (vidas > 0) {
+                visualizacao.textContent = "Vidas: " + vidas;
+            } else {
+                visualizacao.textContent = "Game Over";
+                btnPerderVida.removeEventListener('click', computarDano);
+                btnPerderVida.disabled = true;
+            }
+        }
+
+        btnAtivar.addEventListener('click', () => {
+            vidas = 5;
+            visualizacao.textContent = "Vidas: 5";
+            btnPerderVida.disabled = false;
+            btnPerderVida.addEventListener('click', computarDano);
+        });
+    </script>
+
+</body>
+</html>

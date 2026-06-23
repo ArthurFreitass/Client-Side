@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 19 – Contagem Regressiva</title>
+</head>
+<body>
+
+    <button id="btnAtivar">Ativar Contagem</button>
+    <br><br>
+
+    <button id="btnContar" disabled>Diminuir</button>
+    
+    <div id="visualizacao">Contagem: 20</div>
+
+    <script>
+        const btnAtivar = document.getElementById('btnAtivar');
+        const btnContar = document.getElementById('btnContar');
+        const visualizacao = document.getElementById('visualizacao');
+
+        let contagem = 20;
+
+        function reduzirContagem() {
+            contagem--;
+
+            if (contagem > 0) {
+                visualizacao.textContent = "Contagem: " + contagem;
+            } else {
+                visualizacao.textContent = "Fim da Contagem";
+                btnContar.removeEventListener('click', reduzirContagem);
+                btnContar.disabled = true;
+            }
+        }
+
+        btnAtivar.addEventListener('click', () => {
+            contagem = 20;
+            visualizacao.textContent = "Contagem: 20";
+            btnContar.disabled = false;
+            btnContar.addEventListener('click', reduzirContagem);
+        });
+    </script>
+
+</body>
+</html>

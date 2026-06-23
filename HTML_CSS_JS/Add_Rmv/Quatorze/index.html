@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 14 – Mover Personagem</title>
+</head>
+<body>
+
+    <button id="btnAtivar">Ativar Evento</button>
+    <button id="btnRemover">Remover Evento</button>
+    <br><br>
+
+    <div id="personagem" style="width: 50px; height: 50px; background-color: red; position: absolute; top: 100px; left: 50px;"></div>
+
+    <script>
+        const personagem = document.getElementById('personagem');
+        const btnAtivar = document.getElementById('btnAtivar');
+        const btnRemover = document.getElementById('btnRemover');
+
+        let topo = 100;
+        let esquerda = 50;
+        const passo = 10;
+
+        function mover(evento) {
+            if (evento.key === 'ArrowUp') {
+                topo -= passo;
+            } else if (evento.key === 'ArrowDown') {
+                topo += passo;
+            } else if (evento.key === 'ArrowLeft') {
+                esquerda -= passo;
+            } else if (evento.key === 'ArrowRight') {
+                esquerda += passo;
+            }
+            
+            personagem.style.top = topo + 'px';
+            personagem.style.left = esquerda + 'px';
+        }
+
+        btnAtivar.addEventListener('click', () => {
+            window.addEventListener('keydown', mover);
+        });
+
+        btnRemover.addEventListener('click', () => {
+            window.removeEventListener('keydown', mover);
+        });
+    </script>
+
+</body>
+</html>

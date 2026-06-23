@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 17 – Clique Apenas em Números Pares</title>
+</head>
+<body>
+
+    <button id="btnAtivar">Ativar Evento</button>
+    <button id="btnDesativar">Desativar Evento</button>
+    <br><br>
+
+    <button id="btnGerar" disabled>Gerar Número</button>
+    
+    <div id="visualizacao"></div>
+
+    <script>
+        const btnAtivar = document.getElementById('btnAtivar');
+        const btnDesativar = document.getElementById('btnDesativar');
+        const btnGerar = document.getElementById('btnGerar');
+        const visualizacao = document.getElementById('visualizacao');
+
+        function verificarNumero() {
+            const numero = Math.floor(Math.random() * 20) + 1;
+            
+            if (numero % 2 === 0) {
+                visualizacao.textContent = numero + " - Número Aceito";
+            } else {
+                visualizacao.textContent = numero + " - Número Ignorado";
+            }
+        }
+
+        btnAtivar.addEventListener('click', () => {
+            btnGerar.disabled = false;
+            btnGerar.addEventListener('click', verificarNumero);
+        });
+
+        btnDesativar.addEventListener('click', () => {
+            btnGerar.removeEventListener('click', verificarNumero);
+            btnGerar.disabled = true;
+            visualizacao.textContent = "";
+        });
+    </script>
+
+</body>
+</html>

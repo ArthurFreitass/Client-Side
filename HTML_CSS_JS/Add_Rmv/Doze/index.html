@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 12</title>
+</head>
+
+<body>
+
+    <button>Ativar registro</button>
+    <button>Desativar registro</button>
+    <br><br>
+    <h1></h1>
+    <button style="background-color: purple; color: white; height: 50px; border: none; border-radius: 8px; cursor: pointer;">Clique aqui</button>
+    <script>
+
+        const h1 = document.querySelector("h1")
+        const buttons = document.querySelectorAll("button")
+
+        let arr = [];
+
+        const countClicks = () => {
+            arr.push("Clique")
+            h1.innerText += arr[arr.length - 1]
+            h1.innerHTML += "&nbsp"
+        }
+
+        buttons[0].addEventListener("click", () => {
+            buttons[2].addEventListener('click', countClicks)
+        })
+
+        buttons[1].addEventListener("click", () => {
+            buttons[2].removeEventListener("click", countClicks)
+        })
+    </script>
+</body>
+
+</html>

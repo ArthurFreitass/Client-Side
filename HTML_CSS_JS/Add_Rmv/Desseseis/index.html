@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 16 – Limite de Cliques</title>
+</head>
+<body>
+
+    <button id="btnAtivar">Ativar Contador</button>
+    <br><br>
+
+    <button id="btnContar" disabled>Clique Aqui</button>
+    
+    <div id="visualizacao">Contador: 0</div>
+
+    <script>
+        const btnAtivar = document.getElementById('btnAtivar');
+        const btnContar = document.getElementById('btnContar');
+        const visualizacao = document.getElementById('visualizacao');
+
+        let contador = 0;
+
+        function contarClique() {
+            contador++;
+            
+            if (contador < 10) {
+                visualizacao.textContent = "Contador: " + contador;
+            } else {
+                visualizacao.textContent = "Limite atingido.";
+                btnContar.removeEventListener('click', contarClique);
+                btnContar.disabled = true;
+            }
+        }
+
+        btnAtivar.addEventListener('click', () => {
+            contador = 0;
+            visualizacao.textContent = "Contador: 0";
+            btnContar.disabled = false;
+            btnContar.addEventListener('click', contarClique);
+        });
+    </script>
+
+</body>
+</html>
