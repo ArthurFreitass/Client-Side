@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Um</title>
+</head>
+<body>
+    <div>
+        <button>Adicionar Mensagem</button>
+    </div>
+    <script>
+        const div = document.querySelector("div")
+        const btn = document.querySelector('button')
+
+        const addMessage = () => {
+            const p = document.createElement("p")
+            p.innerText = "Bem-vindo ao sistema!"
+            div.appendChild(p)
+        }
+
+        btn.addEventListener("click", addMessage)
+    </script>
+</body>
+</html>

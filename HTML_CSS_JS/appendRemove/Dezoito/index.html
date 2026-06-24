@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Comentários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            max-width: 500px;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: vertical;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+        #areaComentarios {
+            margin-top: 20px;
+        }
+        .comentario {
+            background-color: #f4f6f8;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            border-left: 4px solid #4a90e2;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Deixe seu Comentário</h2>
+    
+    <textarea id="campoComentario" placeholder="Escreva seu comentário aqui..."></textarea>
+    <button id="btnPublicar">Publicar Comentário</button>
+
+    <div id="areaComentarios"></div>
+
+    <script>
+        const campoComentario = document.getElementById('campoComentario');
+        const btnPublicar = document.getElementById('btnPublicar');
+        const areaComentarios = document.getElementById('areaComentarios');
+
+        btnPublicar.addEventListener('click', function() {
+            const textoComentario = campoComentario.value.trim();
+
+            if (textoComentario !== '') {
+                const novoComentario = document.createElement('div');
+                novoComentario.classList.add('comentario');
+                novoComentario.textContent = textoComentario;
+                
+                areaComentarios.appendChild(novoComentario);
+                campoComentario.value = '';
+                campoComentario.focus();
+            }
+        });
+    </script>
+
+</body>
+</html>

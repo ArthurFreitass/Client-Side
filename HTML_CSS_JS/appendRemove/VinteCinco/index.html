@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo das Bolinhas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .botoes {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+        }
+        button:hover {
+            background-color: #e2e6ea;
+        }
+        #areaJogo {
+            border: 2px dashed #999;
+            min-height: 150px;
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .bolinha {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Jogo das Bolinhas</h2>
+    
+    <div class="botoes">
+        <button id="btnCriar">Criar Bolinha</button>
+        <button id="btnRemover">Remover Bolinha</button>
+    </div>
+
+    <div id="areaJogo"></div>
+
+    <script>
+        const btnCriar = document.getElementById('btnCriar');
+        const btnRemover = document.getElementById('btnRemover');
+        const areaJogo = document.getElementById('areaJogo');
+
+        function gerarCorAleatoria() {
+            const letras = '0123456789ABCDEF';
+            let cor = '#';
+            for (let i = 0; i < 6; i++) {
+                cor += letras[Math.floor(Math.random() * 16)];
+            }
+            return cor;
+        }
+
+        btnCriar.addEventListener('click', function() {
+            const novaBolinha = document.createElement('div');
+            novaBolinha.classList.add('bolinha');
+            novaBolinha.style.backgroundColor = gerarCorAleatoria();
+            
+            areaJogo.appendChild(novaBolinha);
+        });
+
+        btnRemover.addEventListener('click', function() {
+            const ultimaBolinha = areaJogo.lastElementChild;
+            if (ultimaBolinha) {
+                areaJogo.removeChild(ultimaBolinha);
+            }
+        });
+    </script>
+
+</body>
+</html>

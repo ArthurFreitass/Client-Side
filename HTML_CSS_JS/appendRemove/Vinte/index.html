@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mural de Postagens</title>
+</head>
+<body>
+
+    <h2>Mural de Postagens</h2>
+    
+    <input type="text" id="campoMensagem" placeholder="Digite sua mensagem...">
+    <button id="btnPublicar">Publicar</button>
+    <button id="btnRemover">Remover Última Postagem</button>
+
+    <div id="mural"></div>
+
+    <script>
+        const campoMensagem = document.getElementById('campoMensagem');
+        const btnPublicar = document.getElementById('btnPublicar');
+        const btnRemover = document.getElementById('btnRemover');
+        const mural = document.getElementById('mural');
+
+        btnPublicar.addEventListener('click', function() {
+            const texto = campoMensagem.value.trim();
+
+            if (texto !== '') {
+                const novaPostagem = document.createElement('p');
+                novaPostagem.textContent = texto;
+                mural.appendChild(novaPostagem);
+                campoMensagem.value = '';
+                campoMensagem.focus();
+            }
+        });
+
+        btnRemover.addEventListener('click', function() {
+            const ultimaPostagem = mural.lastElementChild;
+            if (ultimaPostagem) {
+                mural.removeChild(ultimaPostagem);
+            }
+        });
+
+        campoMensagem.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                btnPublicar.click();
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Senhas de Atendimento</title>
+</head>
+<body>
+
+    <h2>Sistema de Senhas de Atendimento</h2>
+    
+    <button id="btnGerar">Gerar Senha</button>
+    <button id="btnAtender">Atender Cliente</button>
+
+    <ol id="listaSenhas"></ol>
+
+    <script>
+        const btnGerar = document.getElementById('btnGerar');
+        const btnAtender = document.getElementById('btnAtender');
+        const listaSenhas = document.getElementById('listaSenhas');
+        let contadorSenha = 1;
+
+        btnGerar.addEventListener('click', function() {
+            const novaSenha = document.createElement('li');
+            novaSenha.textContent = 'Senha ' + contadorSenha;
+            listaSenhas.appendChild(novaSenha);
+            contadorSenha++;
+        });
+
+        btnAtender.addEventListener('click', function() {
+            const primeiraSenha = listaSenhas.firstElementChild;
+            if (primeiraSenha) {
+                listaSenhas.removeChild(primeiraSenha);
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfabeto Dinâmico</title>
+</head>
+<body>
+
+    <h2>Alfabeto Dinâmico</h2>
+    
+    <button id="btnAdicionar">Adicionar Letra</button>
+    <button id="btnRemover">Remover Letra</button>
+
+    <div id="painelLetras"></div>
+
+    <script>
+        const btnAdicionar = document.getElementById('btnAdicionar');
+        const btnRemover = document.getElementById('btnRemover');
+        const painelLetras = document.getElementById('painelLetras');
+        
+        const alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let indice = 0;
+
+        btnAdicionar.addEventListener('click', function() {
+            if (indice < alfabeto.length) {
+                const novoSpan = document.createElement('span');
+                novoSpan.textContent = alfabeto[indice] + ' ';
+                painelLetras.appendChild(novoSpan);
+                indice++;
+            }
+        });
+
+        btnRemover.addEventListener('click', function() {
+            const ultimaLetra = painelLetras.lastElementChild;
+            if (ultimaLetra) {
+                painelLetras.removeChild(ultimaLetra);
+                indice--;
+            }
+        });
+    </script>
+
+</body>
+</html>

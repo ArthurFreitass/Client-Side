@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Um</title>
+</head>
+
+<body>
+    <button>Adicionar Mensagem</button>
+    <button>Remover Mensagem</button>
+    <div>
+    </div>
+    <script>
+        const div = document.querySelector("div")
+        const btns = document.querySelectorAll('button')
+        let count = 0
+
+        const addMessage = () => {
+            count++
+            const p = document.createElement("p")
+            p.innerText = "Mensagem " + count
+            div.appendChild(p)
+        }
+
+        const rmvMessage = () => {
+            const childs = div.children
+            if (childs.length > 0) {
+                const last = childs[childs.length - 1]
+                div.removeChild(last);
+            }
+        }
+
+        btns[0].addEventListener("click", addMessage)
+        btns[1].addEventListener("click", rmvMessage)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Log de Eventos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .botoes {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+        }
+        button:hover {
+            background-color: #e2e6ea;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 6px 10px;
+            border-bottom: 1px solid #eee;
+            font-family: monospace;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Histórico de Eventos (Log)</h2>
+    
+    <div class="botoes">
+        <button id="btnEntrar">Entrar</button>
+        <button id="btnSalvar">Salvar</button>
+        <button id="btnSair">Sair</button>
+    </div>
+
+    <ul id="logEventos"></ul>
+
+    <script>
+        const btnEntrar = document.getElementById('btnEntrar');
+        const btnSalvar = document.getElementById('btnSalvar');
+        const btnSair = document.getElementById('btnSair');
+        const logEventos = document.getElementById('logEventos');
+
+        function adicionarLog(mensagem) {
+            const agora = new Date();
+            const dataHora = agora.toLocaleString('pt-BR');
+            
+            const novoItem = document.createElement('li');
+            novoItem.textContent = '[' + dataHora + '] ' + mensagem;
+            logEventos.appendChild(novoItem);
+        }
+
+        btnEntrar.addEventListener('click', function() {
+            adicionarLog('Usuário entrou no sistema');
+        });
+
+        btnSalvar.addEventListener('click', function() {
+            adicionarLog('Usuário salvou os dados');
+        });
+
+        btnSair.addEventListener('click', function() {
+            adicionarLog('Usuário saiu do sistema');
+        });
+    </script>
+
+</body>
+</html>

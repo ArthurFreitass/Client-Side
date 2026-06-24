@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria das cores</title>
+</head>
+
+<body>
+    <h1>Galeria das cores</h1>
+    <button>Adicionar um quadrado com cor</button>
+    <div style="display: flex; flex-wrap: wrap;"></div>
+    <script>
+        const btn = document.querySelector("button")
+        const div = document.querySelector('div')
+        let count = 0
+
+        btn.addEventListener("click", () => {
+            const quadrado = document.createElement("div")
+            quadrado.style.width = "80px"
+            quadrado.style.height = "80px"
+
+            switch (count) {
+                case 0:
+                    quadrado.style.background = "red"
+                    count++
+                    break;
+                case 1:
+                    quadrado.style.background = "blue"
+                    count++
+                    break
+                case 2:
+                    quadrado.style.background = "green"
+                    count++
+                    break
+                case 3:
+                    quadrado.style.background = "yellow"
+                    count = 0
+                    break
+            }
+            div.appendChild(quadrado)
+        })
+    </script>
+</body>
+
+</html>

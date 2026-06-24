@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+
+    <h2>Lista de Tarefas</h2>
+    
+    <input type="text" id="novaTarefa" placeholder="Digite uma tarefa...">
+    <button id="btnAdicionar">Adicionar Tarefa</button>
+    <button id="btnRemover">Remover Tarefa</button>
+
+    <ul id="listaTarefas"></ul>
+
+    <script>
+        const inputTarefa = document.getElementById('novaTarefa');
+        const btnAdicionar = document.getElementById('btnAdicionar');
+        const btnRemover = document.getElementById('btnRemover');
+        const listaTarefas = document.getElementById('listaTarefas');
+
+        btnAdicionar.addEventListener('click', function() {
+            const textoTarefa = inputTarefa.value.trim();
+
+            if (textoTarefa !== '') {
+                const novoItem = document.createElement('li');
+                novoItem.textContent = textoTarefa;
+                listaTarefas.appendChild(novoItem);
+                inputTarefa.value = '';
+                inputTarefa.focus();
+            }
+        });
+
+        btnRemover.addEventListener("click", () => {
+            const childs = listaTarefas.children
+            if (childs.length > 0) {
+                const last = childs[childs.length - 1]
+                listaTarefas.removeChild(last)
+            } else {
+                alert("Adicione uma tarefa primeiro")
+            }
+        })
+
+        inputTarefa.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                btnAdicionar.click();
+            }
+        });
+    </script>
+
+</body>
+</html>

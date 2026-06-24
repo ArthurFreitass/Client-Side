@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Notícias</title>
+</head>
+<body>
+
+    <h2>Painel de Notícias</h2>
+    
+    <button id="btnNovaNoticia">Nova Notícia</button>
+    <button id="btnRemoverNoticia">Remover Última Notícia</button>
+
+    <div id="painel"></div>
+
+    <script>
+        const noticias = [
+            "Cientistas descobrem nova espécie de planta na Amazônia.",
+            "Tecnologia quântica alcança novo recorde de processamento.",
+            "Seleção brasileira de vôlei garante vaga nas finais do campeonato.",
+            "Festival de cinema nacional começa nesta semana com recorde de inscritos.",
+            "Nova fonte de energia limpa começa a ser testada em larga escala."
+        ];
+
+        const btnNovaNoticia = document.getElementById('btnNovaNoticia');
+        const btnRemoverNoticia = document.getElementById('btnRemoverNoticia');
+        const painel = document.getElementById('painel');
+        let indice = 0;
+
+        btnNovaNoticia.addEventListener('click', function() {
+            if (indice < noticias.length) {
+                const novaNoticia = document.createElement('p');
+                novaNoticia.textContent = noticias[indice];
+                painel.appendChild(novaNoticia);
+                indice++;
+            }
+        });
+
+        btnRemoverNoticia.addEventListener('click', function() {
+            const ultimaNoticia = painel.lastElementChild;
+            if (ultimaNoticia) {
+                painel.removeChild(ultimaNoticia);
+                indice--;
+            }
+        });
+    </script>
+
+</body>
+</html>
