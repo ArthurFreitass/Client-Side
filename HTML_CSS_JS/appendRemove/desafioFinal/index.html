@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusão individual</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        #inputTarefa {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            outline: none;
+            width: 250px;
+            transition: border-color 0.3s;
+        }
+
+        #inputTarefa:focus {
+            border-color: #3498db;
+        }
+
+        #btn-add {
+            margin-top: 1em;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 5px;
+            transition: background-color 0.2s;
+        }
+
+        #btn-add:hover {
+            background-color: #27ae60;
+        }
+
+        #tarefas {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+            width: 340px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            align-items: center;
+        }
+
+        #tarefas li {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            word-break: break-word;
+        }
+
+        #tarefas button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        #tarefas button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de tarefas</h1>
+    <input id="inputTarefa" type="text" placeholder="Digite aqui sua tarefa">
+    <button id="btn-add">Adicionar</button>
+
+    <ul id="tarefas"></ul>
+
+    <script>
+        const input = document.getElementById("inputTarefa")
+        const btnAdd = document.getElementById("btn-add")
+        const tasks = document.getElementById("tarefas")
+
+        const createBtnRemove = () => {
+            const btnRmv = document.createElement("button")
+            btnRmv.textContent = "Excluir"
+            return btnRmv
+        }
+
+        btnAdd.addEventListener("click", () => {
+            if (input.value.trim() != "") {
+                const li = document.createElement("li")
+                li.textContent = input.value
+                tasks.appendChild(li)
+                const btnRmv = createBtnRemove()
+
+                tasks.appendChild(btnRmv)
+                btnRmv.addEventListener("click", () => {
+                    tasks.removeChild(li)
+                    tasks.removeChild(btnRmv)
+                })
+                
+                input.value = ""
+            } else {
+                alert("Digite alguma tarefa!")
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Chat Simples</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e5ddd5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .chat-container {
+            background-color: #fff;
+            width: 350px;
+            height: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: #075e54;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #conversa {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+        }
+
+        .mensagem {
+            background-color: #dcf8c6;
+            padding: 8px 12px;
+            border-radius: 8px;
+            align-self: flex-end;
+            max-width: 80%;
+            word-break: break-word;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .controls {
+            padding: 10px;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 5px;
+        }
+
+        #inputMensagem {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        #btn-enviar {
+            background-color: #128c7e;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #btn-enviar:hover {
+            background-color: #075e54;
+        }
+
+        #btn-apagar {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        #btn-apagar:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="chat-container">
+        <div class="chat-header">Mini Chat</div>
+        <div id="conversa"></div>
+        <div class="controls">
+            <div class="input-area">
+                <input id="inputMensagem" type="text" placeholder="Digite uma mensagem...">
+                <button id="btn-enviar">➤</button>
+            </div>
+            <button id="btn-apagar">Apagar Última Mensagem</button>
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById("inputMensagem");
+        const btnEnviar = document.getElementById("btn-enviar");
+        const btnApagar = document.getElementById("btn-apagar");
+        const conversa = document.getElementById("conversa");
+
+        btnEnviar.addEventListener("click", () => {
+            if (input.value.trim() !== "") {
+                const p = document.createElement("p");
+                p.classList.add("mensagem");
+                p.textContent = input.value;
+                conversa.appendChild(p);
+                input.value = "";
+                conversa.scrollTop = conversa.scrollHeight;
+            }
+        });
+
+        input.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                btnEnviar.click();
+            }
+        });
+
+        btnApagar.addEventListener("click", () => {
+            if (conversa.children.length > 0) {
+                const ultimaMsg = conversa.children[conversa.children.length - 1];
+                conversa.removeChild(ultimaMsg);
+            } else {
+                alert("Não há mensagens para apagar!");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
